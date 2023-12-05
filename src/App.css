@@ -1,38 +1,147 @@
-.App {
+/* App.css */
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* LandingSection styles */
+#landing-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #F2F5F9;
+}
+
+#landing-section img {
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#landing-section h1 {
+  font-size: 3xl;
+  color: #1A365D;
+  margin-bottom: 10px;
+}
+
+#landing-section p {
+  font-size: lg;
+  color: gray.600;
+  margin-bottom: 20px;
+}
+
+#landing-section .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing-section .social-icons a {
+  margin-right: 10px;
+}
+
+/* Header styles */
+header {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* AnimatedHeader styles */
+.animated-header {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Card styles */
+.card {
+  padding: 16px;
+  border-width: 1px;
+  border-radius: lg;
+  background-color: white;
+  box-shadow: lg;
+}
+
+.card img {
+  width: 200px;
+  height: auto;
+}
+
+.card h2 {
+  font-size: xl;
+  margin-top: 16px;
+}
+
+.card p {
+  color: gray.600;
+}
+
+.card .tech-stack {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* ContactMeSection styles */
+#contactme-section {
+  background-color: #F7FAFC;
+  padding: 32px;
+}
+
+#contactme-section h1 {
+  color: #2D3748;
+}
+
+#contactme-section form {
+  max-width: 400px;
+  margin: auto;
+}
+
+#contactme-section form label {
+  font-weight: bold;
+}
+
+#contactme-section form input,
+#contactme-section form textarea {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+#contactme-section form button {
+  color-scheme: blue;
+  cursor: pointer;
+}
+
+/* Footer styles */
+footer {
+  background-color: black;
+  color: white;
+  padding: 16px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  /* Add responsive styles here */
 }
