@@ -19,6 +19,8 @@
   transition: transform 0.3s, box-shadow 0.3s;
   font-family: 'Monaco', monospace;
   overflow: hidden; /* Prevent content overflow */
+  margin: 50px; /* You can adjust the margin as needed */
+  width: 350px; /* Set a fixed width for the cards */
 }
 
 .card::before {
@@ -71,4 +73,10 @@
     font-size: 14px;
     color: #bdbdbd; 
     text-align: center; 
+  }
+
+  @media (min-width: 768px) {
+    .card {
+      margin: 10px auto; /* Center the card horizontally */
+    }
   }
