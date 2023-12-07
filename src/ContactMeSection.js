@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   VStack,
@@ -7,64 +8,29 @@ import {
   Input,
   Textarea,
   Button,
-  useToast,
-  FormErrorMessage,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import { useForm } from "@formspree/react";
+
+// Constants
+const FORM_ID = "moqogdkj";
+const REDIRECT_DELAY = 4000;
 
 const ContactMeSection = () => {
-  const toast = useToast();
+  const history = useNavigate();
+  const [state, handleSubmit] = useForm(FORM_ID);
+  const [error, setError] = useState(null);
 
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      email: "",
-      type: "",
-      comment: "",
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string().required("Name is required"),
-      email: Yup.string().email("Invalid email address").required("Email is required"),
-      type: Yup.string().required("Type is required"),
-      comment: Yup.string().required("Message is required"),
-    }),
-    onSubmit: async (values) => {
-      try {
-        const response = await fetch("/api/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-
-        const data = await response.json();
-
-        if (data.type === "success") {
-          toast({
-            title: "Success",
-            description: "Your message has been sent successfully.",
-            status: "success",
-            duration: 5000,
-            isClosable: true,
-          });
-          formik.resetForm();
-        } else {
-          throw new Error("An error occurred. Please try again.");
-        }
-      } catch (error) {
-        console.error(error);
-        toast({
-          title: "Error",
-          description: error.message || "An error occurred. Please try again.",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-      }
-    },
-  });
+  useEffect(() => {
+    if (state.succeeded) {
+      setTimeout(() => {
+        history.push("/");
+      }, REDIRECT_DELAY);
+    } else if (state.errors && state.errors.length > 0) {
+      setError("There was an error submitting the form. Please try again.");
+    }
+  }, [state.succeeded, state.errors, history]);
 
   return (
     <Box
@@ -77,47 +43,45 @@ const ContactMeSection = () => {
       justifyContent="center"
     >
       <VStack spacing="8" align="center">
-        <form onSubmit={formik.handleSubmit} style={{ width: "100%" }}>
+        {error && (
+          <Alert status="error" mt={2}>
+            <AlertIcon />
+            {error}
+          </Alert>
+        )}
+
+        {state.succeeded && (
+          <Alert status="success" mt={2}>
+            <AlertIcon />
+            Your message has been sent!
+          </Alert>
+        )}
+        <form onSubmit={handleSubmit}>
           <VStack spacing="4" align="start" maxW="400px" width="100%">
-            <FormControl
-              isRequired
-              isInvalid={formik.touched.firstName && formik.errors.firstName}
-              width="100%"
-            >
-              <FormLabel>Name</FormLabel>
-              <Input {...formik.getFieldProps("firstName")} type="text" placeholder="Your Name" />
-              <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
+            <FormControl isRequired width="100%" isInvalid={state.errors?.fullName}>
+              <FormLabel htmlFor="fullName">Name</FormLabel>
+              <Input id="fullName" type="text" name="fullName" />
             </FormControl>
-            <FormControl
-              isRequired
-              isInvalid={formik.touched.email && formik.errors.email}
-              width="100%"
-            >
-              <FormLabel>Email Address</FormLabel>
-              <Input {...formik.getFieldProps("email")} type="email" placeholder="Your Email" />
-              <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+            <FormControl isRequired width="100%" isInvalid={state.errors?.email}>
+              <FormLabel htmlFor="email">Email Address</FormLabel>
+              <Input id="email" type="email" name="email" />
             </FormControl>
-            <FormControl
-              isRequired
-              isInvalid={formik.touched.type && formik.errors.type}
-              width="100%"
-            >
-              <FormLabel>Type</FormLabel>
-              <Input {...formik.getFieldProps("type")} type="text" placeholder="Type of Enquiry" />
-              <FormErrorMessage>{formik.errors.type}</FormErrorMessage>
+            <FormControl isRequired width="100%" isInvalid={state.errors?.type}>
+              <FormLabel htmlFor="type">Type</FormLabel>
+              <Input id="type" type="text" name="type" />
             </FormControl>
-            <FormControl
-              isRequired
-              isInvalid={formik.touched.comment && formik.errors.comment}
-              width="100%" 
-            >
-              <FormLabel>Message</FormLabel>
-              <Textarea {...formik.getFieldProps("comment")} placeholder="Your Message" />
-              <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
+            <FormControl isRequired width="100%" isInvalid={state.errors?.message}>
+              <FormLabel htmlFor="message">Message</FormLabel>
+              <Textarea id="message" name="message" />
             </FormControl>
-            <Button colorScheme="blue"
+            <Button
+              colorScheme="blue"
               variant="outline"
-              _hover={{ bg: "blue.500", color: "white" }} type="submit" isLoading={formik.isSubmitting} width="100%">
+              _hover={{ bg: "blue.500", color: "white" }}
+              type="submit"
+              isLoading={state.submitting}
+              width="100%"
+            >
               Submit
             </Button>
           </VStack>
