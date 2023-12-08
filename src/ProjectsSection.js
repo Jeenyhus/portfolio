@@ -41,6 +41,15 @@ const ProjectsSection = () => {
       projectURL: 'https://techsupport.edulution.org/accounts/login/?next=/',
       gitHub: 'www.github.com/edulution/technical-support-management-system',
     },
+    {
+      title: "Cryto Web",
+      description:
+        "This is a web application that shows the top 20 crypto currencies, with the live search filter",
+      techStack: "Vue.js",
+      image: `${process.env.PUBLIC_URL}/images/crypto.png`,
+      projectURL: '#',
+      gitHub: 'https://github.com/Jeenyhus/crypto_web_app',
+    },
   ];
 
   const organizationLogos = [
