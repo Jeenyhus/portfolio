@@ -15,7 +15,7 @@ import './ProjectSection.css';
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Zali",
+      title: "Branding Concept",
       description:
         "A web-based charting system for Zambian music. It collects and ranks artist songs based on weekly music data from all streaming platforms.",
       techStack: "React.js",
@@ -24,7 +24,7 @@ const ProjectsSection = () => {
       gitHub: 'www.github.com/Jeenyhus/zali-100',
     },
     {
-      title: "The Dance Flow",
+      title: "Book Cover",
       description:
         "A platform for dance instructors to host classes, dancers register and make payments online, facilitates workshop registrations, dance battles, and more.",
       techStack: "Django, React.js",
@@ -33,7 +33,7 @@ const ProjectsSection = () => {
       gitHub: 'www.github.com/Jeenyhus/dance-flow',
     },
     {
-      title: "Tech Support Ticket System",
+      title: "UX/UI Designs",
       description:
         "A tool that helps manage technical issues efficiently. It allows users to create tickets, assigns, prioritizes tasks, and facilitates communication.",
       techStack: "Django, React.js",
@@ -42,9 +42,16 @@ const ProjectsSection = () => {
       gitHub: 'www.github.com/edulution/technical-support-management-system',
     },
     {
-      title: "Cryto Web",
+      title: "Videos",
       description:
         "This is a web application that shows the top 20 crypto currencies, with the live search filter",
+      techStack: "Vue.js",
+      image: `${process.env.PUBLIC_URL}/images/crypto.png`,
+      projectURL: '#',
+      gitHub: 'https://github.com/Jeenyhus/crypto_web_app',
+    },
+    {title: "Social Media Videos",
+      description:"This is a web application that shows the top 20 crypto currencies, with the live search filter",
       techStack: "Vue.js",
       image: `${process.env.PUBLIC_URL}/images/crypto.png`,
       projectURL: '#',

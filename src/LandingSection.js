@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 const LandingSection = () => {
   const avatarUrl =
-    "https://media.licdn.com/dms/image/D4D03AQHQqyEmhPwOjw/profile-displayphoto-shrink_800_800/0/1686681610533?e=1706745600&v=beta&t=XUCgwoFxEQDoYfuHTGi4ibnoFpPMrQqNb0gQI1TgOaQ";
-  const greeting = "Hey, I'm Dabwitso!";
-  const introduction = "A creative developer with a love for automation,";
-  const bio = "lets bring that innovative idea to life.";
+    "https://media.licdn.com/dms/image/D5603AQF0PWm1rnLDHw/profile-displayphoto-shrink_200_200/0/1690626746182?e=1709164800&v=beta&t=ckLsGQTVNl4FJEyRROeYtB7Ez6QAXE0Hqh7pcuNVay8";
+  const greeting = "Hey, I'm Muchafara!";
+  const introduction = "A Graphix Designer,";
+  const bio = "Transforming visions into visual masterpieces, one pixel at a time.";
 
-  const handleGitHubClick = () => window.open("https://github.com/Jeenyhus", "_blank");
-  const handleLinkedInClick = () => window.open("https://www.linkedin.com/in/dabwitso-mweemba-439166204/", "_blank");
-  const handleTwitterClick = () => window.open("https://www.twitter.com/lifeofdabiwtso/", "_blank");
+  const handleGitHubClick = () => window.open("https://github.com/Muchafara", "_blank");
+  const handleLinkedInClick = () => window.open("https://www.linkedin.com/in/muchafara-shumba-916b73146/", "_blank");
+  const handleTwitterClick = () => window.open("https://twitter.com/mvchafara", "_blank");
 
   return (
     <Box textAlign="center" py="20" backgroundColor="#f2f2f2" height="100vh">
