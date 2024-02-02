@@ -24,7 +24,7 @@ const LandingSection = () => {
         <Text fontSize="sm" color="#555" mb="4" fontFamily="Monaco">
           "{introduction} <br /> {bio}"
         </Text>
-          <Flex>
+        <Flex>
           <Link to="/contactme-section">
             <Button
               colorScheme="blue"
@@ -35,25 +35,30 @@ const LandingSection = () => {
               Reach Out
             </Button>
           </Link>
+
           <Link to="/projects-section">
             <Button
               colorScheme="blue"
               variant="outline"
               _hover={{ bg: "blue.500", color: "white" }}
-            >
-              Projects
-            </Button>
-          </Link>
-          <Link to="/services">
-            <Button
-              colorScheme="blue"
-              variant="outline"
-              _hover={{ bg: "blue.500", color: "white" }}
+                  ml="2"
+                >
+                  Projects
+                </Button>
+              </Link>
+
+              <Link to="/services">
+                <Button
+                  colorScheme="blue"
+                  variant="outline"
+                  _hover={{ bg: "blue.500", color: "white" }}
+                  ml="2"
             >
               Services
             </Button>
           </Link>
         </Flex>
+
         <Flex mt="8" position="absolute" bottom="4" left="50%" transform="translateX(-50%)">
           <IconButton
             as={FaGithub}
