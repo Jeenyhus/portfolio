@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const LandingSection = () => {
   const avatarUrl =
-    "https://media.licdn.com/dms/image/D4D03AQHQqyEmhPwOjw/profile-displayphoto-shrink_800_800/0/1686681610533?e=1706745600&v=beta&t=XUCgwoFxEQDoYfuHTGi4ibnoFpPMrQqNb0gQI1TgOaQ";
+    "https://media.licdn.com/dms/image/D4D03AQGEDncbYPFgLg/profile-displayphoto-shrink_400_400/0/1706686626455?e=1712188800&v=beta&t=OPvn-CWJIKSzPfH3Wv5xAfKyokBKafWPCKrU65GVyNA";
   const greeting = "Hey, I'm Dabwitso!";
   const introduction = "A creative developer with a love for automation,";
   const bio = "lets bring that innovative idea to life.";
@@ -42,6 +42,15 @@ const LandingSection = () => {
               _hover={{ bg: "blue.500", color: "white" }}
             >
               Projects
+            </Button>
+          </Link>
+          <Link to="/services">
+            <Button
+              colorScheme="blue"
+              variant="outline"
+              _hover={{ bg: "blue.500", color: "white" }}
+            >
+              Services
             </Button>
           </Link>
         </Flex>
