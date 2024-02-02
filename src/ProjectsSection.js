@@ -4,7 +4,7 @@ import {
   SimpleGrid,
   UnorderedList,
   ListItem,
-  Center, // Import Center component
+  Center,
 } from "@chakra-ui/react";
 import Card from "./Card";
 import OrganizationLogo from "./OrganizationLogo";

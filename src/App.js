@@ -5,6 +5,7 @@ import { AlertProvider } from "./customHooks";
 import LandingSection from "./LandingSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactMeSection from "./ContactMeSection";
+import Services from "./Services";
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<LandingSection />} />
             <Route path="/projects-section" element={<ProjectsSection />} />
             <Route path="/contactme-section" element={<ContactMeSection />} />
+            <Route path="/services" element={<Services />} />
           </Routes>
         </Router>
       </ChakraProvider>

@@ -42,13 +42,10 @@ const useAlertContext = () => {
 
 // Define useSubmit
 const useSubmit = () => {
-  // Placeholder logic for useSubmit
-  // Replace with actual implementation and error handling
-
   return {
-    loading: false, // Replace with actual loading state
-    response: {},   // Replace with actual response
-    submit: () => {} // Replace with actual submit function
+    loading: false,
+    response: {},
+    submit: () => {}
   };
 };
 
