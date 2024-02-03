@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
-const Services = ({ buttonText, onRequestQuotation }) => {
+const ServiceCard = ({ title, description, styles }) => (
+  <li style={styles.serviceCard}>
+    <h3 style={styles.serviceTitle}>{title}</h3>
+    <p style={styles.serviceDescription}>{description}</p>
+  </li>
+);
+
+const Services = ({ onRequestQuotation }) => {
   const [quotationName, setQuotationName] = useState('');
 
   const servicesList = [
@@ -38,7 +45,6 @@ const Services = ({ buttonText, onRequestQuotation }) => {
     if (quotationName.trim() === '') {
       alert('Please provide your name for the quotation.');
     } else {
-      // You can customize the logic here, such as sending an email or storing the data.
       onRequestQuotation(quotationName);
       alert('Quotation request sent!');
     }
@@ -49,27 +55,15 @@ const Services = ({ buttonText, onRequestQuotation }) => {
       <h2 style={styles.heading}>Services</h2>
       <ul style={styles.list}>
         {servicesList.map((service, index) => (
-          <li key={index} style={styles.serviceCard}>
-            <h3 style={styles.serviceTitle}>{service.title}</h3>
-            <p style={styles.serviceDescription}>{service.description}</p>
-          </li>
+          <ServiceCard key={index} {...service} styles={styles} />
         ))}
       </ul>
-      <div style={styles.buttonContainer}>
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={quotationName}
-          onChange={(e) => setQuotationName(e.target.value)}
-          style={styles.input}
-        />
-        <button onClick={handleQuotationRequest} style={styles.button}>{buttonText}</button>
-      </div>
     </div>
   );
 };
 
 const styles = {
+  
   servicesContainer: {
     maxWidth: '800px',
     margin: '0 auto',
@@ -108,30 +102,6 @@ const styles = {
     fontSize: '16px',
     margin: '0 20px 20px',
     textAlign: 'center',
-  },
-  buttonContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: '20px',
-  },
-  input: {
-    padding: '10px',
-    marginBottom: '10px',
-    borderRadius: '6px',
-    border: '1px solid #ccc',
-    width: '100%',
-    boxSizing: 'border-box',
-  },
-  button: {
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '12px 24px',
-    fontSize: '18px',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s',
   },
 };
 
