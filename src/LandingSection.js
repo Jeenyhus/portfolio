@@ -13,10 +13,10 @@ const theme = extendTheme({
 
 const LandingSection = () => {
   const avatarUrl =
-    "https://media.licdn.com/dms/image/D4D03AQGEDncbYPFgLg/profile-displayphoto-shrink_400_400/0/1706686626455?e=1712188800&v=beta&t=OPvn-CWJIKSzPfH3Wv5xAfKyokBKafWPCKrU65GVyNA";
+    "https://media.licdn.com/dms/image/D4E03AQEFZMZmyK2lnA/profile-displayphoto-shrink_200_200/0/1716974955167?e=1723075200&v=beta&t=79hIddmhklqpnxgC9KWP4P8rCkxY7YO7N0HAWi_C664";
   const greeting = "Hey, I'm Dabwitso!";
-  const introduction = "A creative developer with a love for automation,";
-  const bio = "lets bring that innovative idea to life.";
+  const introduction = "Software Engineer and Technical Support Engineer,";
+  const bio = "Co founder of Code Savanna.";
 
   const handleGitHubClick = () => window.open("https://github.com/Jeenyhus", "_blank");
   const handleLinkedInClick = () => window.open("https://www.linkedin.com/in/dabwitso-mweemba-439166204/", "_blank");
